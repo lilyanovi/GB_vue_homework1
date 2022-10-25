@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Калькулятор</h1>
+    <input type="number" v-model="operand1">
+    <input type="number" v-model="operand2">
+    <p>Результат: {{result}}</p>
+   
+    <button v-on:click="result = Number(operand1) + Number(operand2)">+</button>
+    <button v-on:click="result = Number(operand1) - Number(operand2)">-</button>
+    <button v-on:click="result = Number(operand1) / Number(operand2)">/</button>
+    <button v-on:click="result = Number(operand1) * Number(operand2)">*</button>
+    <button v-on:click="result = Math.pow(Number(operand1), Number(operand2))">Возведение в степень</button>
+    <button v-on:click="result = Math.floor(Number(operand1) / Number(operand2))">Целочисленное деление</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: "App",
+    data () {
+      return {
+        operand1: "0",
+        operand2: "0",
+        result: "0"
+      }
+    }
   }
-}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
